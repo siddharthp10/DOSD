@@ -5,8 +5,8 @@
  * Created By: Siddharth Pandit
  * Created Date: 16/04/2015
  **/
-public with sharing class UtilityTrigger {
-    // A method to update SLA and expire date on purchase order object
+public with sharing class WarrantyEntitlementTriggerHandler {
+        // A method to update SLA and expire date on purchase order object
     public static void updateSLAType (List<Warranty_Entitlement__c> lstWarrantyObj) {
         Map<Id, Warranty_Entitlement__c> ordIdWrrntyMap = new Map<Id, Warranty_Entitlement__c> ();
         for (Warranty_Entitlement__c warrantyEnt : lstWarrantyObj ) {
@@ -55,11 +55,4 @@ public with sharing class UtilityTrigger {
         if (purOrdListToUpdate.size ()> 0)
             update purOrdListToUpdate;
     }
-   /* public static String updateQuantity (List<Shipped_Part__c> shippedPartList) {
-        Set<Id> cppIdSet = new Set<Id> ();
-        for (Shipped_Part__c shippedPart : shippedPartList) {
-            cppIdSet.add (shippedPart.Id);
-        }
-        
-    } */
 }

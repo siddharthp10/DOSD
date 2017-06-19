@@ -7,10 +7,11 @@
  **/
 trigger WarrantyEntitlementTrigger on Warranty_Entitlement__c (after insert, after update) {
     if (Trigger.isAfter && Trigger.isInsert) {
-        UtilityTrigger.updateSLAType (Trigger.new);
+        WarrantyEntitlementTriggerHandler.updateSLAType (Trigger.new);
     }
 
     // Inactive the PO status on warranty expire
-    if (Trigger.isAfter && Trigger.isInsert)
-        UtilityTrigger.updateInactiveStatus (Trigger.new);
+    if (Trigger.isAfter && Trigger.isInsert) {
+        WarrantyEntitlementTriggerHandler.updateInactiveStatus (Trigger.new);
+    }
 }
